@@ -1,3 +1,5 @@
+from products.views import CatalogSizeView, CatalogItemView, CartView, CartItemView, CheckoutView
+
 """rocket_interview URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -18,4 +20,13 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+]
+
+# products
+urlpatterns += [
+    path('catalog/size/', CatalogSizeView.as_view(), ),
+    path('catalog/<id: str>/', CatalogItemView.as_view()),
+    path('cart/', CartView.as_view()),
+    path('cart/<id: str>/', CartItemView.as_view()),
+    path('cart/checkout/', CheckoutView.as_view())
 ]

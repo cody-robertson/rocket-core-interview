@@ -13,9 +13,9 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
         return int(instance.price)
 
 
-class CartSerializer(serializers.HyperlinkedModelSerializer):
-    products = ProductSerializer(source="cart.products")
-
-    class Meta:
-        model = Cart
-        fields = ['products']
+# class CartSerializer(serializers.HyperlinkedModelSerializer):
+#     products = ProductSerializer(source="cart.products")
+#
+#     class Meta:
+#         model = Cart
+#         fields = ['products']
