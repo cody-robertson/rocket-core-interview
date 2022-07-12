@@ -2,7 +2,7 @@ from rest_framework import serializers
 from .models import Cart, Product
 
 
-class ProductSerializer(serializers.HyperlinkedModelSerializer):
+class ProductSerializer(serializers.ModelSerializer):
     price = serializers.SerializerMethodField()
 
     class Meta:
@@ -13,9 +13,12 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
         return int(instance.price)
 
 
-# class CartSerializer(serializers.HyperlinkedModelSerializer):
-#     products = ProductSerializer(source="cart.products")
-#
-#     class Meta:
-#         model = Cart
-#         fields = ['products']
+class ProductInCartSerializer(serializers.ModelSerializer):
+    price = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Product
+        fields = ['id', 'name', 'price']
+
+    def get_price(self, instance: Product):
+        return int(instance.price)

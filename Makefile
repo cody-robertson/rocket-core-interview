@@ -1,17 +1,17 @@
 makemigrations:
-	docker-compose run api python manage.py makemigrations
+	docker compose run api python manage.py makemigrations
 
 migrate:
-	docker-compose run api python manage.py migrate
+	docker compose run api python manage.py migrate
 
 init_db:
-	docker-compose run api python manage.py init_db products.json
+	docker compose run api python manage.py init_db products.json
 
 start:
-	docker-compose up --build -d
+	docker compose up --build -d
 
 stop:
-	docker-compose down
+	docker compose down
 
 restart:
-	docker-compose restart
+	docker compose restart

@@ -25,8 +25,8 @@ urlpatterns = [
 # products
 urlpatterns += [
     path('catalog/size/', CatalogSizeView.as_view(), ),
-    path('catalog/<id: str>/', CatalogItemView.as_view()),
+    path('catalog/<str:id>/', CatalogItemView.as_view()),
     path('cart/', CartView.as_view()),
-    path('cart/<id: str>/', CartItemView.as_view()),
+    path('cart/item/<str:id>/', CartItemView.as_view()),
     path('cart/checkout/', CheckoutView.as_view())
 ]
